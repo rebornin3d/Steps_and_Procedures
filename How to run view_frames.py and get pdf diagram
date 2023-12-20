@@ -1,0 +1,37 @@
+How to run view_frames.py
+
+The error "No executable found" suggests that either `tf2_tools` is not correctly installed, or the way you're trying to run `view_frames.py` is not compatible with how executables are organized in ROS 2.
+
+In ROS 2, Python scripts are not directly executable via `ros2 run` like they were in ROS 1. Instead, they need to be installed as entry points in `setup.py` of their respective package. This might be the case with `view_frames.py`.
+
+Here's what you can do:
+
+1. **Verify Installation**: First, ensure that `tf2_tools` is correctly installed:
+   ```bash
+   sudo apt install ros-iron-tf2-tools
+   ```
+
+2. **Source ROS 2 Environment**: Make sure your ROS 2 environment is sourced:
+   ```bash
+   source /opt/ros/iron/setup.bash
+   ```
+
+3. **Check for the Script**: Verify that `view_frames.py` exists in your ROS 2 installation:
+   ```bash
+   find /opt/ros/iron -name view_frames.py
+   ```
+
+4. **Run the Script Directly**: If you find the script, you might need to run it directly with Python, for example:
+   ```bash
+   python3 /path/to/view_frames.py
+   ```
+   Replace `/path/to/` with the actual path where `view_frames.py` is located.
+
+5. **Check for Updates or Issues**: Sometimes, these kinds of issues are known and might have been addressed in updates or discussed in community forums or the ROS 2 documentation.
+
+6. **Alternative Approach**: If `view_frames.py` is not designed as an executable in ROS 2, you might need to look for alternative ways to visualize TF frames in ROS 2, possibly using different tools or commands.
+
+Remember, the transition from ROS 1 to ROS 2 involves significant changes in how packages and nodes are structured and run, so some tools and scripts might need to be used differently.
+
+7.This will generate a pdf file with a diagram of the robot structure.The pdf will be generated
+in the folder where the command is executed from

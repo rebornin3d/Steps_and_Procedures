@@ -1,0 +1,36 @@
+Case of Package Craeation with Python
+
+If your ROS 2 package does not have a `CMakeLists.txt` file, it's possible that you have created a Python-only package. In ROS 2, packages for Python-only development typically don't require a `CMakeLists.txt` file, as they don't involve building C++ code. 
+
+For Python-only packages, you can still include and use URDF files without the need for a `CMakeLists.txt` file. Here's how to do it:
+
+1. **Create a URDF Directory**: As mentioned earlier, create a directory within your ROS 2 package to store the URDF model files. For example:
+
+   ```bash
+   mkdir ~/ros2_ws2/src/pkg_1/urdf
+   ```
+
+2. **Create a URDF File**: Within the `urdf` directory, create a URDF file describing your robot's structure, as shown in the previous steps.
+
+3. **Build Your ROS 2 Package**: Go to the root of your ROS 2 workspace (`~/ros2_ws2`) and build the package:
+
+   ```bash
+   cd ~/ros2_ws2
+   colcon build
+   ```
+
+4. **Source Your Workspace**: Source your workspace to set up the environment:
+
+   ```bash
+   source ~/ros2_ws2/install/setup.bash
+   ```
+
+5. **Verify URDF Installation**: Use the `rospack` command to check if the URDF files from your package have been installed:
+
+   ```bash
+   rospack find <package_name>
+   ```
+
+   Replace `<package_name>` with the name of your ROS 2 package (e.g., `pkg_1`). This command should show the path to your package's installation directory, and the URDF files should be located within the `share/<package_name>/urdf` directory.
+
+Since Python-only packages do not involve C++ code, you can focus on creating and using the URDF files without the need for a `CMakeLists.txt` file. These steps should work for your Python-only package.

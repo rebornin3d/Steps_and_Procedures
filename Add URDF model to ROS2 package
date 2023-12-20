@@ -1,0 +1,62 @@
+Add URDF model to ROS2 package
+
+To add a URDF (Unified Robot Description Format) model of a robot to your ROS 2 package in the `src` folder, you can follow these steps:
+
+1. **Create a URDF Directory**: Create a directory within your ROS 2 package to store the URDF model files. You can name this directory something like `urdf`. You can do this using the terminal:
+
+   ```bash
+   mkdir ~/ros2_ws2/src/pkg_1/urdf
+   ```
+
+2. **Create a URDF File**: Within the `urdf` directory, create a URDF file that describes your robot's structure. You can use a text editor to create this file, and it should have the `.urdf` extension. Here's an example of how to create a simple URDF file:
+
+   ```xml
+   <?xml version="1.0"?>
+   <robot name="my_robot">
+     <link name="base_link">
+       <visual>
+         <origin xyz="0 0 0" rpy="0 0 0"/>
+         <geometry>
+           <box size="0.1 0.1 0.1"/>
+         </geometry>
+       </visual>
+     </link>
+   </robot>
+   ```
+
+   This example describes a robot with a single box-shaped link named `base_link`.
+
+3. **Add Meshes and Textures (Optional)**: If your robot model includes meshes or textures, place them in the `urdf` directory as well. Be sure to reference these files correctly in your URDF file.
+
+4. **Edit `CMakeLists.txt`**: Open the `CMakeLists.txt` file of your ROS 2 package located in the package's root directory (e.g., `~/ros2_ws2/src/pkg_1`). Add the following lines to the `CMakeLists.txt` file to specify the installation of URDF files:
+
+   ```cmake
+   install(DIRECTORY urdf
+     DESTINATION share/${PROJECT_NAME}/
+   )
+   ```
+
+   This code instructs ROS 2 to install the contents of the `urdf` directory when the package is built and installed.
+
+5. **Build Your ROS 2 Package**: Go to the root of your ROS 2 workspace (`~/ros2_ws2`) and build the package:
+
+   ```bash
+   cd ~/ros2_ws2
+   colcon build
+   ```
+
+6. **Source Your Workspace**: Source your workspace to set up the environment:
+
+   ```bash
+   source ~/ros2_ws2/install/setup.bash
+   ```
+
+7. **Verify URDF Installation**: You can check if the URDF files from your package have been installed by using the `rospack` command:
+
+   ```bash
+   rospack find <package_name>
+   ```
+
+   Replace `<package_name>` with the name of your ROS 2 package (e.g., `pkg_1`). This command should show the path to your package's installation directory, and the URDF files should be located within the `share/<package_name>/urdf` directory.
+
+With these steps, you've added a URDF model to your ROS 2 package. You can now use this URDF model for simulation or visualization purposes, such as in Gazebo or RViz.

@@ -1,0 +1,250 @@
+Commands
+Conda deactivate - exit all environments
+
+
+You can list all the Conda environments you have installed on your system by using the following command:
+conda env list
+
+Saving Environment Configuration: You can save the environment configuration, including the list of installed packages, to a file (usually named environment.yml). This allows you to recreate the same environment on another system or share it with collaborators.
+
+
+check pytorch version
+pip show torch
+
+
+python3 --version
+
+
+Create a Conda Environment: Create a new conda environment and activate it:
+
+
+conda create -n detectron2 python=3.8  # Replace 3.8 with your desired Python version
+conda activate detectron2
+
+activate conda environment : conda activate your_environment_name
+
+
+
+Check if detectron2 is Installed:
+
+After activating the correct environment, check if detectron2 is indeed installed in it:
+
+
+python -c "import detectron2"
+
+check detectron2 version: pip show detectron2
+
+
+check opencv version
+pkg-config --modversion opencv4
+
+
+
+
+To check the version of ROS 2 installed on your system, you can use the environment variable $ROS_DISTRO. Run the following command in the terminal:
+
+echo $ROS_DISTRO
+
+
+
+ROS 2 Environment Not Sourced: The ros2: command not found error typically occurs if the ROS 2 environment is not sourced in your current terminal session. Before running any ROS 2 command, you should source the ROS 2 environment setup script using:
+
+source /opt/ros/iron/setup.bash
+
+
+
+
+
+To start Gazebo with ROS 2, you can use the following command:
+
+
+ros2 launch gazebo_ros gazebo.launch.py
+
+
+
+
+
+To create a new ROS 2 package, you can use the ros2 pkg create command followed by the package name and other optional arguments. Here's a basic example of creating a package:
+
+
+ros2 pkg create --build-type ament_python <package_name>
+Replace <package_name> with the desired name for your package. This command creates a new package with the necessary setup for Python development.
+
+
+
+
+make file executable:	
+chmod +x file_name.py
+
+to use new functionalities added :
+source ~/.bashrc
+
+
+
+
+
+When you run colcon build --symlink-install, you are instructing Colcon to build the specified packages or workspace and install them using symbolic links, rather than copying the files. This can be particularly useful during development when you want to see immediate changes without having to rebuild and reinstall packages continuously.
+
+colcon build --symlink-install
+
+
+
+env viariables : 
+
+To see all the environment variables in your PATH, you can use the echo command along with the printenv command in a Linux terminal. Here's how you can do it:
+
+Using echo:
+
+Open your terminal and simply run:
+
+echo $PATH
+This command will print the entire PATH variable, which is a colon-separated list of directories.
+
+Using printenv:
+
+You can also use the printenv command to display all environment variables, including PATH. To see just the PATH variable, you can pipe the output to grep:
+
+printenv | grep PATH
+This will display all environment variables containing the word "PATH."
+
+
+
+
+To open and edit an environment variable file, such as `.bashrc` or `.bash_profile`, you can use a text editor in your terminal. Here's how to do it:
+
+1. **Open the File for Editing**:
+
+   You can use a text editor like `nano`, `vim`, or `gedit` to open the file. The choice of text editor depends on your preference and availability. Here are examples for each:
+
+   - Using `nano` (a simple terminal-based text editor):
+
+     ```
+     nano ~/.bashrc
+     ```
+
+   - Using `vim` (a powerful terminal text editor; press `i` to enter insert mode, make your changes, then press `Esc` followed by `:wq` to save and exit):
+
+     ```
+     vim ~/.bashrc
+     ```
+
+   - Using `gedit` (a graphical text editor for GNOME; may not be available in all Linux distributions):
+
+     ```
+     gedit ~/.bashrc
+     ```
+
+   Replace `~/.bashrc` with the path to the file you want to edit if it's located in a different directory.
+
+2. **Make Your Edits**:
+
+   Once you open the file, you can make your edits to the environment variable or any other content you need to modify.
+
+3. **Save the Changes**:
+
+   - If you're using `nano`, press `Ctrl` + `O` to write changes, then press `Enter`, and finally press `Ctrl` + `X` to exit.
+   - If you're using `vim`, press `Esc` to exit insert mode, then type `:w` and press `Enter` to save, and finally type `:q` and press `Enter` to exit.
+   - If you're using `gedit`, simply use the graphical interface to save your changes.
+
+4. **Source the File**:
+
+   After making changes and saving the file, it's a good practice to source the file in your current terminal session to apply the changes immediately. You can do this by running:
+
+   ```
+   source ~/.bashrc
+   ```
+
+   Replace `~/.bashrc` with the path to the file you edited.
+
+These steps allow you to open, edit, and save environment variable files in a Linux terminal. Make sure to take precautions and make backups if you are editing important configuration files to avoid unintentional changes.
+
+
+
+ros2 service list - To see a list of all services available
+
+ros2 service call <service_name> <service_message> - To manually call a service ith the command .
+
+
+~~~~~~~~~~
+
+To start Gazebo with ROS 2, you can use the following command:
+
+Copy code
+ros2 launch gazebo_ros gazebo.launch.py
+This command will launch Gazebo using ROS 2. Make sure you have the necessary ROS 2 packages and Gazebo plugins installed for your specific use case before running this command.
+
+
+
+
+
+The `colcon build --symlink-install` command is used in ROS2 development to build and install packages. Here's a concise explanation:
+
+- `colcon build`: This is the command for building ROS2 packages using Colcon, which is a build tool commonly used in ROS2 development.
+
+- `--symlink-install`: This flag tells Colcon to create symbolic links (symlinks) for the installed files instead of copying them. This can be useful for saving disk space and reducing redundancy when working with multiple packages.
+
+In summary, running `colcon build --symlink-install` will build your ROS2 packages and install them using symbolic links, which can help optimize your development workflow.
+
+You should run the colcon build --symlink-install command in the root directory of your ROS2 workspace (usually referred to as your "workspace folder"). This is typically where your src folder is located.
+
+
+
+
+
+
+
+
+You can use the rm -r (remove recursively) command to delete the package directory you want to remove. For example, if you want to delete mypackage_1, you can use the following command:
+
+rm -r src/mypackage_1
+
+
+
+
+
+
+
+
+
+
+
+
+4. Validate URDF Syntax
+After editing your URDF file, validate its syntax.
+
+Use Check_urdf Tool:
+check_urdf my_robot.urdf.xml
+
+
+
+
+
+
+
+Verify that your workspace is properly set up by checking the ROS 2 environment:
+
+echo $AMENT_PREFIX_PATH
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

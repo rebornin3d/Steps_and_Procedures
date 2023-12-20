@@ -1,0 +1,130 @@
+Certainly! Here's a basic example to get started with ROS 2 in Python:
+
+Create a ROS 2 Package:
+
+First, create a new directory for your ROS 2 workspace, e.g., ros2_ws.
+Inside this workspace, create a src directory and then use the command ros2 pkg create --build-type ament_python <package_name> to create a new package.
+Write a Simple Publisher Node:
+
+In the package directory, create a new Python file, say publisher.py.
+Write a script that initializes a ROS node and publishes messages to a topic.
+Write a Simple Subscriber Node:
+
+In the same package, create another Python file, say subscriber.py.
+Write a script that initializes a ROS node and subscribes to the topic to receive messages.
+Build and Run Your Nodes:
+
+Go back to your ROS 2 workspace root and build your package with colcon build.
+Source the setup script with source install/setup.bash.
+Run your publisher and subscriber nodes in separate terminals using ros2 run <package_name> publisher and ros2 run <package_name> subscriber.
+These steps will give you a basic publisher and subscriber in ROS 2. For detailed code examples and more comprehensive tutorials, the ROS 2 documentation is an excellent resource.
+
+
+
+
+
+ROS 2 Environment Not Sourced: The ros2: command not found error typically occurs if the ROS 2 environment is not sourced in your current terminal session. Before running any ROS 2 command, you should source the ROS 2 environment setup script using:
+
+
+source /opt/ros/iron/setup.bash = for Ubuntu22
+
+
+
+ROS2 commands : 
+ros2 node list
+
+ros2 node info name_of_node
+
+
+
+ROS 2 (Robot Operating System 2) provides a wide range of commands for working with robots, robotics applications, and ROS packages. Here are some of the most common ROS 2 commands:
+
+1. **`ros2 run`**: This command is used to run ROS 2 nodes or executables. For example, you can run a specific package and executable with `ros2 run package_name executable_name`.
+
+2. **`ros2 launch`**: The `ros2 launch` command is used to start ROS 2 launch files, which can launch multiple nodes and set parameters. It's a more flexible and recommended way to start nodes compared to `ros2 run`.
+
+3. **`ros2 node`**: This command allows you to interact with ROS 2 nodes. You can list nodes, get information about a specific node, and even send messages or service requests to nodes.
+
+4. **`ros2 topic`**: Use this command to interact with ROS 2 topics. You can list topics, echo the data on a topic, publish to a topic, and more.
+
+5. **`ros2 service`**: Similar to `ros2 topic`, this command lets you interact with ROS 2 services. You can list services, call services, and get information about services.
+
+6. **`ros2 param`**: With this command, you can set, get, list, and delete ROS 2 parameters. Parameters are a way to configure and tune ROS 2 nodes and components.
+
+7. **`ros2 bag`**: The `ros2 bag` command is used to record and play back ROS 2 data in bag files. Bag files are a convenient way to capture and replay data for testing and analysis.
+
+8. **`ros2 launch-prefix`**: This command is used to set launch prefix for launch files. It can be helpful for configuring environment variables or prefixing commands before launching nodes.
+
+9. **`ros2 action`**: Use this command to work with ROS 2 action servers and clients. Actions are a way to perform asynchronous tasks in ROS 2.
+
+10. **`ros2 interface`**: The `ros2 interface` command allows you to work with ROS 2 message and service types. You can generate code from interfaces, show the definition of an interface, and more.
+
+11. **`ros2 param get`**: This command is used to get the value of a specific ROS 2 parameter.
+
+12. **`ros2 param set`**: Use this command to set the value of a specific ROS 2 parameter.
+
+13. **`ros2 pkg`**: The `ros2 pkg` command provides information about ROS 2 packages, including listing available packages, displaying package information, and more.
+
+14. **`ros2 dep`**: This command helps you manage package dependencies by displaying information about package dependencies, checking for dependencies, and resolving package dependencies.
+
+15. **`ros2 run <package> <executable>`**: This command is used to run a specific executable from a ROS 2 package. It's commonly used to start individual nodes.
+
+16. **`ros2 launch-prefix`**: You can use this command to set prefix commands that run before launching a node. It's useful for configuring environment variables or preparing the environment.
+
+17. **`ros2 qos`**: The Quality of Service (QoS) settings can be configured using the `ros2 qos` command. You can view, get, and set QoS settings for topics and services.
+
+18. **`ros2 security`**: ROS 2 supports security features, and you can use the `ros2 security` command to configure and manage security settings, including certificates, permissions, and policies.
+
+19. **`ros2 param list`**: This command lists all the parameters currently available in the ROS 2 parameter server.
+
+20. **`ros2 param delete`**: Use this command to delete a specific parameter from the parameter server.
+
+21. **`ros2 doctor`**: The `ros2 doctor` command performs a system check and provides diagnostic information about the ROS 2 environment.
+
+22. **`ros2 component`**: This command is used for working with ROS 2 components. Components are a way to create and manage ROS 2 nodes with a simplified API.
+
+23. **`ros2 image`**: If you're working with image-related topics, you can use the `ros2 image` command to interact with image topics, view images, and convert image formats.
+
+24. **`ros2 service type`**: This command displays information about the service types available in a package.
+
+25. **`ros2 topic info`**: It provides detailed information about a specific topic, including publishers, subscribers, and message types.
+
+26. **`ros2 timer list`**: Lists all active timers in the ROS 2 system.
+
+27. **`ros2 timer delay`**: You can use this command to introduce delays into ROS 2 timers for testing and simulation purposes.
+
+28. **`ros2 bag play`**: Plays back data from a ROS 2 bag file, which can be helpful for replaying recorded data for testing and analysis.
+
+command for data type on the topic: 
+(detectron2_py38) florin@florin:~/ros2_ws$ ros2 topic info /topic_name
+Type: std_msgs/msg/String
+Publisher count: 1
+Subscription count: 1
+
+
+to hear what is on the topic
+ros2 topic echo /topic_name 
+
+
+Run turtlesim
+ros2 run turtlesim turtlesim_node
+
+
+Ros2 run turtlesim turtle_teleop_key
+Reading from keyboard
+
+list packages
+ros2 pkg list
+
+
+
+
+To launch the UR5 package in ROS2 with Gazebo, you can use ROS2 launch files. Assuming you have the UR5 Gazebo simulation package installed and your ROS2 workspace set up correctly, you can launch the simulation with a command similar to the following:
+
+
+ros2 launch ur_gazebo ur5_launch.py
+
+
+
+
+

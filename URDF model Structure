@@ -1,0 +1,15 @@
+URDF model Structure
+
+A URDF (Unified Robot Description Format) model in ROS can be composed of varying numbers of files, depending on the complexity of the robot. At its simplest, a URDF model can be a single XML file describing the robot's joints, links, sensors, and actuators. However, for more complex robots, the URDF model might be composed of several files:
+
+1. **Main URDF File**: Contains the overall structure of the robot, including links and joints.
+
+2. **Xacro Files**: These are XML Macro files used to simplify the URDF creation process. They allow for more modular and reusable code.
+
+3. **Mesh Files**: These are used for visual representation of the robot's parts. They are often in formats like STL or COLLADA.
+
+4. **Configuration Files**: For sensors, actuators, and other components, additional YAML or XML configuration files might be used.
+
+5. **Launch Files**: Although not part of the URDF itself, launch files are often used in conjunction with URDF to launch the robot model in ROS environments like Rviz or Gazebo.
+
+The number of files can vary widely from a simple, single-file model to a complex one with dozens of files.

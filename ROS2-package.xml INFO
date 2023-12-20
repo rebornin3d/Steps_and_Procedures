@@ -1,0 +1,44 @@
+ROS2-package.xml INFO
+
+The content of your `package.xml` file you provided appears to be missing some essential information, particularly related to package dependencies. The warnings and errors you encountered during the `colcon build` command are likely related to these missing dependencies.
+
+Here's how you should modify your `package.xml` file to specify the build and runtime dependencies for your ROS 2 package:
+
+```xml
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>pkg_1</name>
+  <version>0.0.0</version>
+  <description>TODO: Package description</description>
+  <maintainer email="rebornin3d@gmail.com">florin</maintainer>
+  <license>TODO: License declaration</license>
+
+  <!-- Add build and runtime dependencies here -->
+  <depend>ament_cmake</depend> <!-- Required for ROS 2 packages -->
+  <!-- Add other build and runtime dependencies as needed -->
+  <!-- For Python packages, you can list Python dependencies as well -->
+  <!-- For example:
+  <depend>some_ros2_dependency</depend>
+  <depend>another_ros2_dependency</depend>
+  <depend>python_dependency</depend>
+  -->
+
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>
+```
+
+In the modified `package.xml` file:
+
+- `<depend>`: You should list the build and runtime dependencies of your ROS 2 package here. Make sure to include any ROS 2 packages or other dependencies that your package relies on.
+
+By adding these `<depend>` tags, you specify the package dependencies, which are essential for successful package builds using `colcon`. Missing dependencies can indeed lead to errors or warnings during the build process.
+
+Once you've updated your `package.xml` file with the correct dependencies, save the file, and then try running `colcon build` again. Ensure that you have installed all the required dependencies using ROS 2's package manager (e.g., `apt`) to resolve any missing dependencies.

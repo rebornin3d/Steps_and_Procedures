@@ -1,0 +1,27 @@
+Importing URDF model into Rviz
+
+To open and visualize your URDF model in RViz (ROS Visualization), you'll need to perform the following steps:
+
+1. **Launch RViz**: Open a terminal, source your ROS 2 workspace if you haven't already, and launch RViz by running the following command:
+
+   ```bash
+   ros2 run rviz2 rviz2
+   ```
+
+   This will start RViz, the ROS 2 visualization tool.
+
+2. **Add Robot Model Display**: In RViz, click on the "Add" button in the "Displays" panel on the left side of the RViz window.
+
+3. Select "RobotModel": A list of available display types will appear. Select "RobotModel" from the list.
+
+4. **Set Fixed Frame**: In the "Displays" panel, you'll see a "Fixed Frame" field. This field specifies the reference frame for the robot model. You should set it to match the frame specified in your URDF model (usually "base_link" or a similar name). If you're unsure, you can often leave it as the default value.
+
+5. **Load URDF File**: In the "Robot Description" section of the "RobotModel" display settings, you need to specify the path to your URDF file. Click the folder icon next to the "URDF" field and browse to the location of your URDF file (e.g., `~/ros2_ws2/src/pkg_1/urdf/your_robot.urdf`).
+
+6. **Adjust Robot Alpha**: Optionally, you can adjust the "Alpha" value to control the transparency of the robot model for better visibility.
+
+7. **Save Configuration (Optional)**: If you plan to use this RViz configuration frequently, you can save it by clicking the "Save Config" button in the "Displays" panel. This allows you to load the same configuration in the future without repeating these steps.
+
+8. **Visualize**: After configuring RViz with your URDF file, you should see the robot model displayed in the RViz window. You can interact with the visualization, zoom in/out, pan, and rotate to get a better view of your robot.
+
+By following these steps, you should be able to load and visualize your URDF model in RViz, allowing you to inspect and verify its appearance and structure within the ROS 2 environment.

@@ -1,0 +1,24 @@
+To spawn a model in Gazebo, follow these steps:
+
+1. **Source ROS2 Environment:** 
+   Open a terminal and source your ROS2 environment:
+   ```bash
+   source /opt/ros/iron/setup.bash
+   ```
+
+2. **Launch Gazebo:**
+   Start Gazebo with ROS2 by running:
+   ```bash
+   ros2 launch gazebo_ros gazebo.launch.py
+   ```
+
+3. **Find or Create Your Model:**
+   Ensure you have a model file (URDF, SDF, or XACRO). If it's a custom model, place it in your ROS2 package.
+
+4. **Spawn the Model:**
+   Use the `spawn_entity.py` script to spawn your model. Replace `model_name` with your model's name and `model.sdf` with your model's file path:
+   ```bash
+   ros2 run gazebo_ros spawn_entity.py -entity model_name -file /path/to/model.sdf
+   ```
+
+Make sure the path to your model file is correct and your model is correctly formatted for Gazebo.

@@ -1,0 +1,77 @@
+GIT basic Commands
+
+To create a new branch in Git, you can use the `git branch` command followed by the name of the new branch you want to create. Here's the basic syntax:
+
+```bash
+git branch branch-name
+```
+
+Replace `branch-name` with the desired name for your new branch.
+
+However, creating a new branch with `git branch` only creates the branch; it doesn't switch to it. To create and switch to the new branch in one step, you can use the `-b` option with `git checkout`:
+
+```bash
+git checkout -b branch-name
+```
+
+This command will create a new branch with the specified name and switch to it, making it your current working branch.
+
+Here's a step-by-step example:
+
+1. Check out the branch you want to start from (e.g., "main" or another existing branch):
+
+   ```bash
+   git checkout main
+   ```
+
+2. Create a new branch and switch to it:
+
+   ```bash
+   git checkout -b feature-branch
+   ```
+
+   In this example, a new branch named "feature-branch" is created, and you are automatically switched to it.
+
+3. Make your changes, commit them, and then push the branch to a remote repository if needed:
+
+   ```bash
+   git add .  # Stage your changes
+   git commit -m "Your commit message"
+   git push origin feature-branch  # Push the branch to the remote repository (if needed)
+   ```
+
+Now, you have successfully created and switched to a new branch in Git and can start working on your project in the new branch.
+
+
+
+
+You can use the `git branch` command with the `-v` or `--verbose` option to see a list of all branches in your Git repository, and it will also indicate which branch you are currently on (the currently checked-out branch). Open your terminal or command prompt and navigate to your Git repository directory, then run:
+
+```bash
+git branch -v
+```
+
+The branch with an asterisk (`*`) next to it is your current branch. Here's an example of what the output might look like:
+
+```
+* main        commit-hash Last commit message
+  feature-branch commit-hash Another commit message
+  bug-fix-branch commit-hash Yet another commit message
+```
+
+In this example, "main" is the currently checked-out branch (indicated by the asterisk `*`). The other branches listed are additional branches in your repository, along with the commit hash and the last commit message for each branch.
+
+This command provides a concise way to determine your current branch and view other branches in your Git repository.
+
+
+
+
+
+
+
+
+
+
+
+
+
